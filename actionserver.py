@@ -1,3 +1,8 @@
+# Define the action and service messages:
+Creating `.msg` files in the msg folder of our package to define the structure of the
+action goal, result, and feedback messages, as well as the service request and response messages. 
+Therefor,I created a `PlantStatus.msg` file to define the message structure for plant status information.
+
 Implementing the action:
     First writing the action code to handle requests for plant watering. 
     This might involve activating a water pump or other hardware to water the plant.
