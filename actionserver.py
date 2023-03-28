@@ -1,4 +1,4 @@
-Implement the action:
+Implementing the action:
     First writing the action code to handle requests for plant watering. 
     This might involve activating a water pump or other hardware to water the plant.
     
