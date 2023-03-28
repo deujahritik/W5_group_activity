@@ -1,28 +1,31 @@
-#!/usr/bin/env python
+# Define the action and service messages:
+*Creating `.msg` files in the msg folder of our package to define the structure of the action goal, result, and feedback messages, as well as the service request and response messages. *
+ *created a `PlantStatus.msg` file to define the message structure for plant status information.*
+
+## Implementing  service: 
+*Write the service code to handle requests for plant status information. This might involve reading sensor data or other information from the hardware and returning it as a response. Here's an example of a simple service implementation:*
 
 import rospy
-import actionlib
-from your_package.msg import YourAction, YourActionFeedback, YourActionResult
+from my_package.srv import PlantStatus
 
-class YourActionServer(object):
-    # create messages that are used to publish feedback/result
-    _feedback = YourActionFeedback()
-    _result = YourActionResult()
+def handle_plant_status(req):
+    # Read sensor data or other information from the hardware
+    temperature = 25.0
+    humidity = 50.0
+    light_intensity = 1000
 
-    def __init__(self):
-        # create the action server
-        self._as = actionlib.SimpleActionServer("your_action_name", YourAction, self.execute, False)
-        self._as.start()
+    # Create the service response
+    status = PlantStatusResponse()
+    status.temperature = temperature
+    status.humidity = humidity
+    status.light_intensity = light_intensity
 
-    def execute(self, goal):
-        # execute the action
-        rospy.loginfo("Executing action...")
-        rospy.sleep(1.0)
-        self._result.your_result_variable = "Result"
-        self._as.set_succeeded(self._result)
+    return status
 
-if __name__ == '__main__':
-    rospy.init_node('your_action_server')
-    server = YourActionServer()
+def plant_status_server():
+    rospy.init_node('plant_status_server')
+    s = rospy.Service('plant_status', PlantStatus, handle_plant_status)
     rospy.spin()
 
+if __name__ == '__main__':
+    plant_status_server()
