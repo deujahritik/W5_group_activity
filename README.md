@@ -2,10 +2,10 @@
 # SMART_AGRICULTURE_SYSTEM
 ## The basic outline of a ROS-based project is pointed down below:
 ### 1.Set up a ROS workspace:
-*The first step in our ROS project is to set up a workspace. we can follow the instructions in the ROS documentation to set up a workspace on your machine.*
+*The first step in our ROS project is to set up a workspace. we can follow the instructions in the ROS documentation to set up a workspace on virtual machine.*
 
 ### 2.Defining service and action messages:
-*For our smart agriculture system, we will likely need to define a service and an action message that will be used to communicate between different nodes in your system. You can use the ROS message format to define your messages, and then generate the message classes using the rosmsg command.*
+*For our smart agriculture system, we will likely need to define a service and an action message that will be used to communicate between different nodes in your system. we can use the ROS message format to define your messages, and then generate the message classes using the rosmsg command.*
 
 ### Implement service and action servers:
 *Once we have defined our messages, we can implement the service and action servers that will handle the requests and perform the actions in our system. then we can write these servers in Python or C++.
