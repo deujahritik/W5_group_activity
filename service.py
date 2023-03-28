@@ -1,18 +1,35 @@
-#!/usr/bin/env python
+# Define the action and service messages:
+Creating `.msg` files in the msg folder of our package to define the structure of the
+action goal, result, and feedback messages, as well as the service request and response messages. 
+Therefor,I created a `PlantStatus.msg` file to define the message structure for plant status information.
+
+## Implementing  service: 
+Now, Writing service code to handle requests for plant status information.
+This might involve reading sensor data or other information from the hardware and returning it as a response.
+
+Here's an example of a simple service implementation:
 
 import rospy
-from your_package.srv import YourService, YourServiceResponse
+from my_package.srv import PlantStatus
 
-def handle_your_service(req):
-    # handle the service request
-    rospy.loginfo("Handling service request...")
-    your_response_variable = "Response"
-    return YourServiceResponse(your_response_variable)
+def handle_plant_status(req):
+    # Read sensor data or other information from the hardware
+    temperature = 25.0
+    humidity = 50.0
+    light_intensity = 1000
 
-if __name__ == '__main__':
-    rospy.init_node('your_service_server')
-    # create the service
-    service = rospy.Service('your_service_name', YourService, handle_your_service)
-    rospy.loginfo("Service ready.")
+    # Create the service response
+    status = PlantStatusResponse()
+    status.temperature = temperature
+    status.humidity = humidity
+    status.light_intensity = light_intensity
+
+    return status
+
+def plant_status_server():
+    rospy.init_node('plant_status_server')
+    s = rospy.Service('plant_status', PlantStatus, handle_plant_status)
     rospy.spin()
 
+if __name__ == '__main__':
+    plant_status_server()
