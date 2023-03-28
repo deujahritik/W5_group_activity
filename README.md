@@ -17,4 +17,4 @@
 *As we develop our system, it's important to test it thoroughly and debug any issues that arise. we can use ROS tools like rostopic echo and rosnode info to inspect the behavior of your system and diagnose any issues.*
 
 ### 6.Deploying  system:
-*Once our system is working as expected, we can deploy it to our target environment. This might involve setting up hardware like sensors and actuators, and configuring your nodes to communicate over a network.*
+*Once our system is working as expected, we can deploy it to our target environment. This involve setting up hardware like sensors and actuators, and configuring our nodes to communicate over a network.*
